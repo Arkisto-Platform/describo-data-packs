@@ -29,7 +29,4 @@ cd ..
 echo "Getting Country Data"
 cd countries/ISO-639-6-country-data
 node create-country-data-pack
-cd ..
-node countries_create_main_dataset.js
-cd ..
 
