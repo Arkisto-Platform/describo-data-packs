@@ -39,7 +39,6 @@ const { writeJson, readJSON } = require("fs-extra");
             languageCode = components.shift();
             name = components.shift();
             macroarea = components.shift();
-            console.log(macroarea);
             latitude = components.shift();
             longitude = components.shift();
             glottocode = components.shift();
@@ -102,5 +101,5 @@ const { writeJson, readJSON } = require("fs-extra");
         }
     }
 
-    await writeJson(languagePack, languageData, { spaces: 4 });
+    await writeJson(languagePack, languageData);
 })();
