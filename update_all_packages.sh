@@ -27,6 +27,6 @@ cd ..
 
 # update country data set
 echo "Getting Country Data"
-cd countries/ISO-639-6-country-data
+cd countries
 node create-country-data-pack
 
