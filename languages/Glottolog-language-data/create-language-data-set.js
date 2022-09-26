@@ -3,21 +3,7 @@ const data = "https://raw.githubusercontent.com/glottolog/glottolog-cldf/master/
 const alternativeNames = "./alternativeNames.json";
 const languagePack = "./glottolog-language-data-pack.json";
 const fetch = require("cross-fetch");
-<<<<<<< HEAD
-const { writeJson } = require("fs-extra");
-const fs = require("fs");
-const { join } = require("path");
-
-function get_alternative_names() {
-    let rawdata = fs.readFileSync(alternativeNames);
-    let altNames = JSON.parse(rawdata);
-    //console.log(altNames)
-    return altNames;
-    
-}
-=======
 const { writeJson, readJSON } = require("fs-extra");
->>>>>>> b21f49f (merge in changes from master)
 
 (async () => {
     let response = await fetch(data, { cache: "reload" });
@@ -26,13 +12,8 @@ const { writeJson, readJSON } = require("fs-extra");
     }
     response = await response.text();
 
-<<<<<<< HEAD
-    const alternativeNameDict = get_alternative_names();
-    
-=======
     const alternativeNameDict = await readJSON(alternativeNames);
 
->>>>>>> b21f49f (merge in changes from master)
     const languageData = [];
 
     for (let line of response.split("\n")) {
@@ -58,20 +39,15 @@ const { writeJson, readJSON } = require("fs-extra");
             languageCode = components.shift();
             name = components.shift();
             macroarea = components.shift();
-            console.log(macroarea)
+            console.log(macroarea);
             latitude = components.shift();
             longitude = components.shift();
             glottocode = components.shift();
 
             // get alternative names
             if (name in alternativeNameDict) {
-<<<<<<< HEAD
-                
-                if (alternativeNameDict[name].join().length > 0) { // some entries have a empty string 
-=======
                 if (alternativeNameDict[name].join().length > 0) {
                     // some entries have a empty string
->>>>>>> b21f49f (merge in changes from master)
                     alternateName = alternativeNameDict[name];
                 } else {
                     alternateName = [];
@@ -126,5 +102,5 @@ const { writeJson, readJSON } = require("fs-extra");
         }
     }
 
-    await writeJson(languagePack, languageData, {"spaces":4});
+    await writeJson(languagePack, languageData, { spaces: 4 });
 })();
