@@ -3,6 +3,7 @@ const data = "https://raw.githubusercontent.com/glottolog/glottolog-cldf/master/
 const alternativeNames = "./alternativeNames.json";
 const languagePack = "./glottolog-language-data-pack.json";
 const fetch = require("cross-fetch");
+<<<<<<< HEAD
 const { writeJson } = require("fs-extra");
 const fs = require("fs");
 const { join } = require("path");
@@ -14,6 +15,9 @@ function get_alternative_names() {
     return altNames;
     
 }
+=======
+const { writeJson, readJSON } = require("fs-extra");
+>>>>>>> b21f49f (merge in changes from master)
 
 (async () => {
     let response = await fetch(data, { cache: "reload" });
@@ -22,8 +26,13 @@ function get_alternative_names() {
     }
     response = await response.text();
 
+<<<<<<< HEAD
     const alternativeNameDict = get_alternative_names();
     
+=======
+    const alternativeNameDict = await readJSON(alternativeNames);
+
+>>>>>>> b21f49f (merge in changes from master)
     const languageData = [];
 
     for (let line of response.split("\n")) {
@@ -56,8 +65,13 @@ function get_alternative_names() {
 
             // get alternative names
             if (name in alternativeNameDict) {
+<<<<<<< HEAD
                 
                 if (alternativeNameDict[name].join().length > 0) { // some entries have a empty string 
+=======
+                if (alternativeNameDict[name].join().length > 0) {
+                    // some entries have a empty string
+>>>>>>> b21f49f (merge in changes from master)
                     alternateName = alternativeNameDict[name];
                 } else {
                     alternateName = [];
@@ -108,7 +122,7 @@ function get_alternative_names() {
                 });
             }
         } catch (error) {
-            console.log(error.message, components);
+            console.log("here", error.message, components);
         }
     }
 
