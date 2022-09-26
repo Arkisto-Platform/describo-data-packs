@@ -1,7 +1,8 @@
 #!/bin/sh
 
-# update Austlang data pack
 cd languages
+
+# update Austlang data pack
 cd Austlang-language-data
 node create-language-data-set.js
 cd ..
@@ -11,9 +12,12 @@ cd Glottolog-language-data
 node create-language-data-set.js
 cd ..
 
+# update ethnologue dataset
+cd ISO-639-3-language-data
+node create-language-data-pack.js
+
 # crossreference austlang and glottolog data packs and
-# create main language data pack
-node languages_crossref_glotto_austlang.js
+node cross-reference-languages.js
 cd ..
 
 # update country data set
