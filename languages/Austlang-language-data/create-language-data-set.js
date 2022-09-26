@@ -141,5 +141,5 @@ function CSVtoArray(strData, strDelimiter) {
         }
     }
 
-    await writeJson(languagePack, languageData, { spaces: 4 });
+    await writeJson(languagePack, languageData);
 })();
