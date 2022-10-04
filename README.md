@@ -1,3 +1,7 @@
+# Development of this package has moved to [https://github.com/describo/data-packs](https://github.com/describo/data-packs)
+
+
+
 - [For users](#for-users)
   - [Install the package](#install-the-package)
   - [Loading the data packs into elastic search](#loading-the-data-packs-into-elastic-search)
